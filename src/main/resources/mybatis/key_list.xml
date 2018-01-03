@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.chance.dao.KeyListDao">
+	<select id="queryKeyList"  resultType="string">
+		select distinct(kk) from
+		(select first_key kk from key_list
+		union 
+		select twice_key kk from key_list
+		union 
+		select total_key kk from key_list) t;	
+	</select>
+</mapper>
