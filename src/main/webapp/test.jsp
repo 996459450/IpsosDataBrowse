@@ -339,7 +339,7 @@ AutoComplete.prototype={
 <body>
 
 <div id="img_box">
- <div id="img_log"><a href="#"><img src="../img/ipsos.png" alt="壁纸3" width="100" height="70"/></a></div>
+ <div id="img_log"><a href="#"><img src="../img/ipsos.png" alt="ipsos" width="100" height="70"/></a></div>
  <div id="txt_box">
  <a href="#">&nbsp;&nbsp;舆情分析</a>
  </div>
