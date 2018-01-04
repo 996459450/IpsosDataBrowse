@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="utf8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+	pageEncoding="utf8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 
 <html>
@@ -8,354 +8,450 @@
 <meta charset="utf-8">
 
 <style>
- *{margin:0;padding:0;}
-   img{border:0;margin:0 1px 1px 0;}
- body{font-size:14px;font-family:"微软雅黑";color:#666;background:#f5f6ec;}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+	margin: 0 1px 1px 0;
+}
+
+body {
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #666;
+	background: #f5f6ec;
+}
 
 .auto_hidden {
-
-    width:204px;border-top: 1px solid #333;
-
-    border-bottom: 1px solid #333;
-
-    border-left: 1px solid #333;
-
-    border-right: 1px solid #333;
-
-    position:absolute;
-
-    display:none;
-
+	width: 204px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	position: absolute;
+	display: none;
 }
 
 .auto_show {
-
-    width:204px;
-
-    border-top: 1px solid #333;
-
-    border-bottom: 1px solid #333;
-
-    border-left: 1px solid #333;
-
-    border-right: 1px solid #333;
-
-    position:absolute;
-
-    z-index:9999; /* 设置对象的层叠顺序 */
-
-    display:block;
-
+	width: 204px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	position: absolute;
+	z-index: 9999; /* 设置对象的层叠顺序 */
+	display: block;
 }
 
-.auto_onmouseover{
-
-    color:#ffffff;
-
-    background-color:highlight;
-
-    width:100%;
-
+.auto_onmouseover {
+	color: #ffffff;
+	background-color: highlight;
+	width: 100%;
 }
 
-.auto_onmouseout{
-
-    color:#000000;
-
-    width:100%;
-
-    background-color:#ffffff;
-
+.auto_onmouseout {
+	color: #000000;
+	width: 100%;
+	background-color: #ffffff;
 }
 
-#img_box{width:550px;height:80px;margin:10px auto;margin-top:80px;}
-  #img_box a{width:550px;height:70px;}
-  #img_log{width:100px;height:70px;float:left;margin-left:100px;}
-  #txt_box{width:200px;height:70px;float:left; font-size:35px;text-align:center;line-height:70px;font-family:"Arial";}
-  #searchbox { margin:0px auto; height:37px; width:550px;}
-  #searchbox div { float:left;} 
-  #o { height:35px; width:440px; line-height:35px; border:solid 1px #4791FF;font-size:20px;}
-  #btnSelect a{ width:100px; height:37px; background:#167ED9; display:block; line-height:37px; color:#ffffff; text-align:center; }
-  a:link { text-decoration:none;}
-  a:hover { cursor:pointer;}
-  #dtitles { width:540px; height:90px; border:solid 1px #CCCCCC; display:none; font-size:12px;}
-  .li1 { background:#F0F0F0;}
+#img_box {
+	width: 550px;
+	height: 80px;
+	margin: 10px auto;
+	margin-top: 130px;
+}
 
+#img_box a {
+	width: 550px;
+	height: 70px;
+}
+
+#img_log {
+	width: 100px;
+	height: 70px;
+	float: left;
+	margin-left: 100px;
+}
+
+#txt_box {
+	width: 200px;
+	height: 70px;
+	float: left;
+	font-size: 35px;
+	text-align: center;
+	line-height: 70px;
+	font-family: "Arial";
+}
+
+#searchbox {
+	margin: 0px auto;
+	height: 36px;
+	width: 550px;
+}
+
+#searchbox div {
+	float: left;
+}
+
+#o {
+	height: 35px;
+	width: 440px;
+	line-height: 35px;
+	border: solid 1px #4791FF;
+	font-size: 20px;
+	padding-left:5px;
+}
+
+#btnSelect a {
+	width: 100px;
+	height: 37px;
+	background: #167ED9;
+	display: block;
+	line-height: 36px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 16px;
+}
+
+#ipsos_check {
+	width:200px;
+	height:0px;
+	position: absolute;
+	margin: 10px auto;
+	float: left;
+	line-height: 30px;
+}
+
+#ipsos_check a {
+	line-height: 30px;
+	font-size: 18px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+#dtitles {
+	width: 540px;
+	height: 90px;
+	border: solid 1px #CCCCCC;
+	display: none;
+	font-size: 12px;
+}
+
+.li1 {
+	background: #F0F0F0;
+}
 </style>
 
 <script language="javascript">
+	var $ = function(id) {
 
+		return "string" == typeof id ? document.getElementById(id) : id;
 
+	}
 
-var $ = function (id) {
+	var Bind = function(object, fun) {
 
-    return "string" == typeof id ? document.getElementById(id) : id;
+		return function() {
 
-}
+			return fun.apply(object, arguments);
 
-var Bind = function(object, fun) {
+		}
 
-    return function() {
+	}
 
-        return fun.apply(object, arguments);
+	function AutoComplete(obj, autoObj, arr) {
 
-    }
+		this.obj = $(obj); //输入框
 
-}
+		this.autoObj = $(autoObj);//DIV的根节点
 
-function AutoComplete(obj,autoObj,arr){
+		this.value_arr = arr; //不要包含重复值
 
-    this.obj=$(obj);        //输入框
+		this.index = -1; //当前选中的DIV的索引
 
-    this.autoObj=$(autoObj);//DIV的根节点
+		this.search_value = ""; //保存当前搜索的字符
 
-    this.value_arr=arr;        //不要包含重复值
+	}
 
-    this.index=-1;          //当前选中的DIV的索引
+	AutoComplete.prototype = {
 
-    this.search_value="";   //保存当前搜索的字符
+		//初始化DIV的位置
 
-}
+		init : function() {
 
-AutoComplete.prototype={
+			this.autoObj.style.left = this.obj.offsetLeft + "px";
 
-    //初始化DIV的位置
+			this.autoObj.style.top = this.obj.offsetTop + this.obj.offsetHeight
+					+ "px";
 
-    init: function(){
+			this.autoObj.style.width = this.obj.offsetWidth - 2 + "px";//减去边框的长度2px
 
-        this.autoObj.style.left = this.obj.offsetLeft + "px";
+		},
 
-        this.autoObj.style.top  = this.obj.offsetTop + this.obj.offsetHeight + "px";
+		//删除自动完成需要的所有DIV
 
-        this.autoObj.style.width= this.obj.offsetWidth - 2 + "px";//减去边框的长度2px
+		deleteDIV : function() {
 
-    },
+			while (this.autoObj.hasChildNodes()) {
 
-    //删除自动完成需要的所有DIV
+				this.autoObj.removeChild(this.autoObj.firstChild);
 
-    deleteDIV: function(){
+			}
 
-        while(this.autoObj.hasChildNodes()){
+			this.autoObj.className = "auto_hidden";
 
-            this.autoObj.removeChild(this.autoObj.firstChild);
+		},
 
-        }
+		//设置值
 
-        this.autoObj.className="auto_hidden";
+		setValue : function(_this) {
 
-    },
+			return function() {
 
-    //设置值
+				_this.obj.value = this.seq;
 
-    setValue: function(_this){
+				_this.autoObj.className = "auto_hidden";
 
-        return function(){
+			}
 
-            _this.obj.value=this.seq;
+		},
 
-            _this.autoObj.className="auto_hidden";
+		//模拟鼠标移动至DIV时，DIV高亮
 
-        }
+		autoOnmouseover : function(_this, _div_index) {
 
-    },
+			return function() {
 
-    //模拟鼠标移动至DIV时，DIV高亮
+				_this.index = _div_index;
 
-    autoOnmouseover: function(_this,_div_index){
+				var length = _this.autoObj.children.length;
 
-        return function(){
+				for (var j = 0; j < length; j++) {
 
-            _this.index=_div_index;
+					if (j != _this.index) {
 
-            var length = _this.autoObj.children.length;
+						_this.autoObj.childNodes[j].className = 'auto_onmouseout';
 
-            for(var j=0;j<length;j++){
+					} else {
 
-                if(j!=_this.index ){
+						_this.autoObj.childNodes[j].className = 'auto_onmouseover';
 
-                    _this.autoObj.childNodes[j].className='auto_onmouseout';
+					}
 
-                }else{
+				}
 
-                    _this.autoObj.childNodes[j].className='auto_onmouseover';
+			}
 
-                }
+		},
 
-            }
+		//更改classname
 
-        }
+		changeClassname : function(length) {
 
-    },
+			for (var i = 0; i < length; i++) {
 
-    //更改classname
+				if (i != this.index) {
 
-    changeClassname: function(length){
+					this.autoObj.childNodes[i].className = 'auto_onmouseout';
 
-        for(var i=0;i<length;i++){
+				} else {
 
-            if(i!=this.index ){
+					this.autoObj.childNodes[i].className = 'auto_onmouseover';
 
-                this.autoObj.childNodes[i].className='auto_onmouseout';
+					this.obj.value = this.autoObj.childNodes[i].seq;
 
-            }else{
+				}
 
-                this.autoObj.childNodes[i].className='auto_onmouseover';
+			}
 
-                this.obj.value=this.autoObj.childNodes[i].seq;
+		}
 
-            }
+		,
 
-        }
+		//响应键盘
 
-    }
+		pressKey : function(event) {
 
-    ,
+			var length = this.autoObj.children.length;
 
-    //响应键盘
+			//光标键"↓"
 
-    pressKey: function(event){
+			if (event.keyCode == 40) {
 
-        var length = this.autoObj.children.length;
+				++this.index;
 
-        //光标键"↓"
+				if (this.index > length) {
 
-        if(event.keyCode==40){
+					this.index = 0;
 
-            ++this.index;
+				} else if (this.index == length) {
 
-            if(this.index>length){
+					this.obj.value = this.search_value;
 
-                this.index=0;
+				}
 
-            }else if(this.index==length){
+				this.changeClassname(length);
 
-                this.obj.value=this.search_value;
+			}
 
-            }
+			//光标键"↑"
 
-            this.changeClassname(length);
+			else if (event.keyCode == 38) {
 
-        }
+				this.index--;
 
-        //光标键"↑"
+				if (this.index < -1) {
 
-        else if(event.keyCode==38){
+					this.index = length - 1;
 
-            this.index--;
+				} else if (this.index == -1) {
 
-            if(this.index<-1){
+					this.obj.value = this.search_value;
 
-                this.index=length - 1;
+				}
 
-            }else if(this.index==-1){
+				this.changeClassname(length);
 
-                this.obj.value=this.search_value;
+			}
 
-            }
+			//回车键
 
-            this.changeClassname(length);
+			else if (event.keyCode == 13) {
 
-        }
+				this.autoObj.className = "auto_hidden";
 
-        //回车键
+				this.index = -1;
 
-        else if(event.keyCode==13){
+			} else {
 
-            this.autoObj.className="auto_hidden";
+				this.index = -1;
 
-            this.index=-1;
+			}
 
-        }else{
+		},
 
-            this.index=-1;
+		//程序入口
 
-        }
+		start : function(event) {
 
-    },
+			if (event.keyCode != 13 && event.keyCode != 38
+					&& event.keyCode != 40) {
 
-    //程序入口
+				this.init();
 
-    start: function(event){
+				this.deleteDIV();
 
-        if(event.keyCode!=13&&event.keyCode!=38&&event.keyCode!=40){
+				this.search_value = this.obj.value;
 
-            this.init();
+				var valueArr = this.value_arr;
 
-            this.deleteDIV();
+				valueArr.sort();
 
-            this.search_value=this.obj.value;
+				if (this.obj.value.replace(/(^\s*)|(\s*$)/g, '') == "") {
+					return;
+				}//值为空，退出
 
-            var valueArr=this.value_arr;
+				try {
+					var reg = new RegExp("(" + this.obj.value + ")", "i");
+				}
 
-            valueArr.sort();
+				catch (e) {
+					return;
+				}
 
-            if(this.obj.value.replace(/(^\s*)|(\s*$)/g,'')==""){ return; }//值为空，退出
+				var div_index = 0;//记录创建的DIV的索引
 
-            try{ var reg = new RegExp("(" + this.obj.value + ")","i");}
+				for (var i = 0; i < valueArr.length; i++) {
 
-            catch (e){ return; }
+					if (reg.test(valueArr[i])) {
 
-            var div_index=0;//记录创建的DIV的索引
+						var div = document.createElement("div");
 
-            for(var i=0;i<valueArr.length;i++){
+						div.className = "auto_onmouseout";
 
-                if(reg.test(valueArr[i])){
+						div.seq = valueArr[i];
 
-                    var div = document.createElement("div");
+						div.onclick = this.setValue(this);
 
-                    div.className="auto_onmouseout";
+						div.onmouseover = this.autoOnmouseover(this, div_index);
 
-                    div.seq=valueArr[i];
+						div.innerHTML = valueArr[i].replace(reg,
+								"<strong>$1</strong>");//搜索到的字符粗体显示
 
-                    div.onclick=this.setValue(this);
+						this.autoObj.appendChild(div);
 
-                    div.onmouseover=this.autoOnmouseover(this,div_index);
+						this.autoObj.className = "auto_show";
 
-                    div.innerHTML=valueArr[i].replace(reg,"<strong>$1</strong>");//搜索到的字符粗体显示
+						div_index++;
 
-                    this.autoObj.appendChild(div);
+					}
 
-                    this.autoObj.className="auto_show";
+				}
 
-                    div_index++;
+			}
 
-                }
+			this.pressKey(event);
 
-            }
+			window.onresize = Bind(this, function() {
+				this.init();
+			});
 
-        }
+		}
 
-        this.pressKey(event);
-
-        window.onresize=Bind(this,function(){this.init();});
-
-    }
-
-}
-
-
+	}
 </script>
 
 <body>
 
-<div id="img_box">
- <div id="img_log"><a href="#"><img src="../img/ipsos.png" alt="ipsos" width="100" height="70"/></a></div>
- <div id="txt_box">
- <a href="#">&nbsp;&nbsp;舆情分析</a>
- </div>
- </div>
- 
-  <div id="searchbox">
- <div><input type="text" id="o" placeholder="" onkeyup="autoComplete.start(event)"/></div>
- <div id="btnSelect"><a href="javascript:;">搜&nbsp;&nbsp;索</a></div>
-</div>
-    
-    <c:forEach items="${list}" var="s">
-   		 <input style="display:none" name="key_list" type="checkbox" value="${s}" checked="checked">
-    </c:forEach>
-	
-    <div class="auto_hidden" id="auto"><!--自动完成 DIV--></div>
-<script type="text/javascript" >
+	<div id="img_box">
+		<div id="img_log">
+			<a href="#"><img src="../img/ipsos.png" alt="ipsos" width="100"
+				height="70" /></a>
+		</div>
+		<div id="txt_box">
+			<a href="#">&nbsp;&nbsp;舆情分析</a>
+		</div>
+	</div>
+
+	<div id="searchbox">
+		<form name="form1" >
+			<div>
+				<input type="text" id="o" placeholder="" autocomplete="off"
+					onkeyup="autoComplete.start(event)" />
+			</div>
+			<div id="btnSelect">
+				<a href="javascript:;">搜&nbsp;&nbsp;索</a>
+			</div>
+			<div id="ipsos_check">
+				<br> <a><label><input type="checkbox"
+						name="checkbox" value="checkbox" checked="checked">
+						关键字&nbsp;&nbsp;&nbsp;&nbsp;</label></a> 
+						<a><label><input
+						type="checkbox" name="checkbox" value="checkbox">
+						原话&nbsp;&nbsp;&nbsp;&nbsp;</label></a>
+			</div>
+		</form>
+	</div>
+
+	<c:forEach items="${list}" var="s">
+		<input style="display: none" name="key_list" type="checkbox"
+			value="${s}" checked="checked">
+	</c:forEach>
+
+	<div class="auto_hidden" id="auto">
+		<!--自动完成 DIV-->
+	</div>
+	<script type="text/javascript">
 	var obj = document.getElementsByName("key_list");
 	var arr = [];
 	for(var key in obj){
