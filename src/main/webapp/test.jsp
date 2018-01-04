@@ -4,7 +4,7 @@
 <!doctype html>
 
 <html>
-
+<title>Ipsos 舆情检索</title>
 <meta charset="utf-8">
 
 <style>
