@@ -424,9 +424,9 @@ a:hover {
 	</div>
 
 	<div id="searchbox">
-		<form action="<%=request.getContextPath()%>/keylist/keyQuery.php" name="form1" method="post">
+		<form name="form1" >
 			<div>
-				<input type="text" id="o" name="opt" placeholder="" autocomplete="off"
+				<input type="text" id="o" placeholder="" autocomplete="off"
 					onkeyup="autoComplete.start(event)" />
 			</div>
 			<div id="btnSelect">
@@ -434,10 +434,10 @@ a:hover {
 			</div>
 			<div id="ipsos_check">
 				<br> <a><label><input type="checkbox"
-						name="checkbox" checked="checked"  value="key">
+						name="checkbox" value="checkbox" checked="checked">
 						关键字&nbsp;&nbsp;&nbsp;&nbsp;</label></a> 
 						<a><label><input
-						type="checkbox" name="checkbox" value="text">
+						type="checkbox" name="checkbox" value="checkbox">
 						原话&nbsp;&nbsp;&nbsp;&nbsp;</label></a>
 			</div>
 		</form>
@@ -460,18 +460,6 @@ a:hover {
 		}
 	} 
     var autoComplete=new AutoComplete('o','auto',arr);
-    /* function submit1(){
-    	var key = document.getElementById("o").value
-    	var keystat = document.getElementsByName("checkbox")
-    	var karr = []
-   		for(var key in keystat){
-	   		if(keystat[key].checked){
-	   			arr.push(keystat[key].value)
-	   		}
-    	} 
-    	alert(key)
-    	alert(typeof(karr))
-    } */
 </script>
 
 </body>

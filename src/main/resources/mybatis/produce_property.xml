@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.chance.dao.WriteFileDao">
+	<select id="writeFile"  resultType="map">
+		select t1.id,t1.original_text,t1.link,t1.website,t1.thread_or_praise,t1.year,
+		t1.quar,t1.month,t1.brand,t1.car_name,t1.car_model_version,t1.first_property,
+		t1.second_property,t1.third_classify,t1.comment_key,t1.real_feel,
+		t2.market_category,t2.market_mess,t2.nation 
+		from produce_property t1,car_own_mess t2 where t1.brand=t2.brand;
+	</select>
+</mapper>
