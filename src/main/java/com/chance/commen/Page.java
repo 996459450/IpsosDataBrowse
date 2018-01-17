@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author 分页类
+ * @author 
  * @date 2018年1月9日 上午11:03:26
  *
  */
@@ -12,10 +12,10 @@ public class Page {
 
 	private int currentPageNum =  1;//当前第几页，默认第一页
 	
-	private int totalPageNum ;//总页数
+	private int totalPageNum = 1;//总页数
 	private int totalCount ;//总记录数
 	private int visiblePages = 0;//设置最多显示的页码数，默认0
-	private int perPageSize = 15;//每页显示条数
+	public static int perPageSize = 15;//每页显示条数
 	private List entitys = new ArrayList();//记录当前页的数据条目
 	
 	public Page(int currentPageNum, int totalCount, int perPageSize,  
@@ -39,6 +39,9 @@ public class Page {
         this.visiblePages = this.totalPageNum > 10?10:this.totalPageNum;
     } 
     
+    public Page(){
+    	
+    }
     public int getVisiblePages() {
 		return visiblePages;
 	}
@@ -68,14 +71,6 @@ public class Page {
   
     public void setTotalCount(int totalCount) {  
         this.totalCount = totalCount;  
-    }  
-  
-    public int getPerPageSize() {  
-        return perPageSize;  
-    }  
-  
-    public void setPerPageSize(int perPageSize) {  
-        this.perPageSize = perPageSize;  
     }  
   
     public List getEntitys() {  

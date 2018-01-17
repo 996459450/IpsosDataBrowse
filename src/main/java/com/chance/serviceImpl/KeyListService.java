@@ -1,7 +1,5 @@
 package com.chance.serviceImpl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -21,16 +19,16 @@ public class KeyListService implements KeyList{
 	private KeyListDao keyListDao;
 	
 	@Override
-	public List<Map<String,String>>  queryKeyList() {
+	public List<Map<String,Object>>  queryKeyList() {
 		return keyListDao.queryKeyList();
 	}
 
 	@Override
-	public List<Map<String, String>> firstQueryList(Map<String,String> map) {
+	public List<Map<String, Object>> firstQueryList(Map<String,Object> map) {
 		if(map != null){
 			Set<String> keySet = map.keySet();
 			for(String str : keySet){
-				System.out.println(map.get(str));
+				System.out.println(str+"====="+map.get(str)+"<---------->");
 			}
 			return keyListDao.firstQueryList(map);
 		}
@@ -38,15 +36,16 @@ public class KeyListService implements KeyList{
 	}
 
 	@Override
-	public int firstQueryCount(Map<String, String> map) {
+	public int firstQueryCount(Map<String, Object> map) {
 		if(map != null){
-			return keyListDao.firstQueryCount(map);
+			int i = keyListDao.firstQueryCount(map);
+			return i == 0 ? 1 : i;
 		}
-		return 0;
+		return 1;
 	}
 
 	@Override
-	public void filterOption(Map<String, String> map) {
+	public void filterOption(Map<String, Object> map) {
 		Set<String> website = new HashSet<String>();
 		Set<String> thread_or_praise = new HashSet<String>();
 		Set<String> year = new HashSet<String>();
@@ -64,25 +63,25 @@ public class KeyListService implements KeyList{
 		Set<String> market_mess = new HashSet<String>();
 		Set<String> nation = new HashSet<String>();
 		if(map != null){
-			List<Map<String,String>> list = keyListDao.filterOption(map);
+			List<Map<String,Object>> list = keyListDao.filterOption(map);
 			if(list != null && list.size() > 0){
-				for(Map<String,String> line : list){
-					website.add(line.get("website"));
-					thread_or_praise.add(line.get("thread_or_praise"));
-					year.add(line.get("year"));
-					quar.add(line.get("quar"));
-					month.add(line.get("month"));
-					car_name.add(line.get("car_name"));
-					car_model_version.add(line.get("car_model_version"));
-					first_property.add(line.get("first_property"));
-					brand.add(line.get("brand"));
-					second_property.add(line.get("second_property"));
-					third_classify.add(line.get("third_classify"));
-					comment_key.add(line.get("comment_key"));
-					real_feel.add(line.get("real_feel"));
-					market_category.add(line.get("market_category"));
-					market_mess.add(line.get("market_mess"));
-					nation.add(line.get("nation"));
+				for(Map<String,Object> line : list){
+					website.add(line.get("website").toString());
+					thread_or_praise.add(line.get("thread_or_praise").toString());
+					year.add(line.get("year").toString());
+					quar.add(line.get("quar").toString());
+					month.add(line.get("month").toString());
+					car_name.add(line.get("car_name").toString());
+					car_model_version.add(line.get("car_model_version").toString());
+					first_property.add(line.get("first_property").toString());
+					brand.add(line.get("brand").toString());
+					second_property.add(line.get("second_property").toString());
+					third_classify.add(line.get("third_classify").toString());
+					comment_key.add(line.get("comment_key").toString());
+					real_feel.add(line.get("real_feel").toString());
+					market_category.add(line.get("market_category").toString());
+					market_mess.add(line.get("market_mess").toString());
+					nation.add(line.get("nation").toString());
 				}
 			}
 		}
@@ -102,6 +101,14 @@ public class KeyListService implements KeyList{
 		reMap.put("market_category", market_category);
 		reMap.put("market_mess", market_mess);
 		reMap.put("nation", nation);
+	}
+
+	@Override
+	public List<Map<String, Object>> pageQuaryList(Map<String, Object> map) {
+		if(map != null){
+			return keyListDao.pageQuaryList(map);
+		}
+		return null;
 	}
 
 }

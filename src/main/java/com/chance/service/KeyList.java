@@ -7,14 +7,32 @@ import java.util.Set;
 
 public interface KeyList {
 
+	/**
+	 * 用于存储筛选框的筛选条件
+	 */
 	public Map<String, Set<String>> reMap = new HashMap<String,Set<String>>();
-	public List<Map<String, String>> queryKeyList();
+	/**
+	 * 首页查询时检索模糊匹配的数据
+	 */
+	public List<Map<String, Object>> queryKeyList();
 	
+	/**
+	 * 查询每页的数据
+	 */
+	public List<Map<String,Object>> firstQueryList(Map<String,Object> map);
 	
-	public List<Map<String,String>> firstQueryList(Map<String,String> map);
+	/**
+	 * 查询数据量
+	 */
+	public int firstQueryCount(Map<String,Object> map);
 	
-	public int firstQueryCount(Map<String,String> map);
-	
-	public void filterOption(Map<String,String> map);
+	/**
+	 * 筛选框数据检索
+	 */
+	public void filterOption(Map<String,Object> map);
+	/**
+	 * 分页查询
+	 */
+	public List<Map<String,Object>> pageQuaryList(Map<String,Object> map);
 	
 }

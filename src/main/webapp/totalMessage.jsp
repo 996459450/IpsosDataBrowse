@@ -70,7 +70,8 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js" ></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jqPaginator.min.js" ></script>
 	<script type="text/javascript">
-	
+	/* )
+	*/
 	$(function(){
                 $.jqPaginator('#pageulid', {
                     totalPages: parseInt($("#totalPageNum").val()), //设置分页的总页数，默认0
@@ -83,7 +84,7 @@
                     page: '<li class="paginItem"><a href="javascript:void(0);">{{page}}</a></li>', //设置页码的Html结构
                     onPageChange: function (num, type) {//页面改变响应事件
 						if(type=="change"){
-						    location.href = "#";
+							location.href = "<%=request.getContextPath()%>/keylist/pageQuaryList.php?nowPage="+num+"&allCount="+$("#allCount").val();
 						}
                     }
                 });
@@ -109,31 +110,25 @@
 
             
             function check1(){
-            	var zzsc1 = $("input[name='zzsc1']:checked").val();
-            	var zzsc2 = $("input[name='zzsc2']:checked").val();
-            	var zzsc3 = $("input[name='zzsc3']:checked").val();
-            	var zzsc4 = $("input[name='zzsc4']:checked").val();
-            	var zzsc5 = $("input[name='zzsc5']:checked").val();
-            	var zzsc6 = $("input[name='zzsc6']:checked").val();
-            	var zzsc7 = $("input[name='zzsc7']:checked").val();
-            	var zzsc8 = $("input[name='zzsc8']:checked").val();
-            	var zzsc9 = $("input[name='zzsc9']:checked").val();
-            	var zzsc10 = $("input[name='zzsc10']:checked").val();
-            	var zzsc11 = $("input[name='zzsc11']:checked").val();
-            	alert(typeof($("#zzsc1 option:selected").val()))
-            	alert($("#zzsc1 option:selected").val())
-            	alert($("#zzsc2 option:selected").val())
-            	alert($("#zzsc3 option:selected").val())
-            	alert($("#zzsc4 option:selected").val())
-            	alert($("#zzsc5 option:selected").val())
-            	alert($("#zzsc6 option:selected").val())
-            	alert($("#zzsc7 option:selected").val())
-            	alert($("#zzsc8 option:selected").val())
-            	alert($("#zzsc9 option:selected").val())
-            	alert($("#zzsc10 option:selected").val())
-            	alert($("#zzsc11 option:selected").val())
-            	
-            }
+            	var website = $('#zzsc1 option:selected').val()
+            	var year = $("#zzsc2 option:selected").val()
+            	var quar = $("#zzsc3 option:selected").val()
+            	var month = $("#zzsc4 option:selected").val()
+            	var thread_or_praise = $("#zzsc5 option:selected").val()
+            	var car_name = $("#zzsc6 option:selected").val()
+            	var car_model_version = $("#zzsc7 option:selected").val()
+            	var brand = $("#zzsc8 option:selected").val()
+            	var real_feel = $("#zzsc9 option:selected").val()
+            	var market_mess = $("#zzsc10 option:selected").val()
+            	var nation = $("#zzsc11 option:selected").val()
+            	location.href="<%=request.getContextPath()%>/keylist/secondQuery.php?website="
+            		   +website+"&year="+year+"&quar="+quar+"&month="+month+"&thread_or_praise="+thread_or_praise
+            		   +"&car_name="+car_name+"&car_model_version="+car_model_version+"&brand="+brand+
+            		      "&real_feel="+real_feel+"&market_mess="+market_mess+"&nation"+nation;
+            	 <%-- location.href="<%=request.getContextPath()%>/keylist/secondQueryList.php?website="+website+"&year="+year+"
+            			"&quar="+quar+"&month="+month+"&thread_or_praise="+thread_or_praise+"&car_name="+car_name+"&car_model_version="
+            			+car_model_version+"&brand="+brand+"&real_feel="+real_feel+"&market_mess="+market_mess+"&nation="+nation; --%>
+             }
 	</script>
  <body>
 	<input type="hidden" id="opt" value="${opt}"/>
@@ -183,7 +178,7 @@
 </div></li>
        <li><div id="zzsc5">
 	<select>
-			<option>口碑/论坛</option>
+			<option value="">口碑/论坛</option>
 		<c:forEach items="${filterOption.thread_or_praise}" var="v">
 			<option value="${v}">${v}</option>
 		</c:forEach>
@@ -217,7 +212,7 @@
 	<select>
 			<option value="">情感</option>
 		<c:forEach items="${filterOption.real_feel}" var="v">
-			<option value="">${v}</option>
+			<option value="${v}">${v}</option>
 		</c:forEach>
 	</select>
 </div></li>
@@ -297,6 +292,7 @@
 		</c:forEach>	
 		</table>
 		</c:if>
+		<input id="allCount" type="hidden" value="${pages.totalCount}">
 		 <div class="pagin">
 				<div class="message" id="message"><a>共<i class="blue">${pages.totalCount}</i>条记录，当前显示第&nbsp;<i class="blue">${pages.currentPageNum}&nbsp;</i>页</a></div>
 				<ul class="paginList" id="pageulid"></ul>

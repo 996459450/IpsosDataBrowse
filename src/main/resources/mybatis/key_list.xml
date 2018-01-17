@@ -15,7 +15,7 @@
 		from produce_property;
 	</select>
 	
-	<select id="firstQueryList" parameterType="map"  resultType="map">
+<!-- 	<select id="firstQueryList" parameterType="map"  resultType="map">
 		select t1.id,t1.original_text,t1.link,t1.website,t1.thread_or_praise,t1.year,
 		t1.quar,t1.month,t1.brand,t1.car_name,t1.car_model_version,t1.first_property,
 		t1.second_property,t1.third_classify,t1.comment_key,t1.real_feel,
@@ -23,19 +23,98 @@
 		from produce_property t1,car_own_mess t2
 		<where>
 			t1.brand=t2.brand
+			<if test="website != null">and t1.website=#{website}</if>
+			<if test="thread_or_praise != null">and t1.thread_or_praise=#{thread_or_praise}</if>
+			<if test="year != null">and t1.year=#{year}</if>
+			<if test="quar != null">and t1.quar=#{quar}</if>
+			<if test="month != null">and t1.month=#{month}</if>
+			<if test="brand != null">and t1.brand=#{brand}</if>
+			<if test="car_name != null">and t1.car_name=#{car_name}</if>
+			<if test="car_model_version != null">and t1.car_model_version=#{car_model_version}</if>
 			<if test="first_property != null">and t1.first_property=#{first_property}</if>
 			<if test="second_property != null">and t1.second_property=#{second_property}</if>
+			<if test="third_classify != null">and t1.third_classify=#{third_classify}</if>
 			<if test="comment_key != null">and t1.comment_key=#{comment_key}</if>
+			<if test="real_feel != null">and t1.real_feel=#{real_feel}</if>
+			<if test="market_category != null">and t2.market_category=#{market_category}</if>
+			<if test="market_mess != null">and t2.market_mess=#{market_mess}</if>
+			<if test="nation != null">and t2.nation=#{nation}</if>
 			<if test="original_text != null">and t1.original_text like '%${original_text}%'</if>
-		</where> limit 1,15;
-	</select>
-	<select id="firstQueryCount" resultType="java.lang.Integer" parameterType="map">
-		select count(1) from produce_property t1,car_own_mess t2
+		</where> limit 1,15; 
+	</select>-->
+		<select id="firstQueryList" parameterType="map"  resultType="map">
+		select t1.id,t1.original_text,t1.link,t1.website,t1.thread_or_praise,t1.year,
+		t1.quar,t1.month,t1.brand,t1.car_name,t1.car_model_version,t1.first_property,
+		t1.second_property,t1.third_classify,t1.comment_key,t1.real_feel,
+		t2.market_category,t2.market_mess,t2.nation 
+		from produce_property t1,car_own_mess t2
 		<where>
 			t1.brand=t2.brand
+			<if test="website != null">and t1.website=#{website}</if>
+			<if test="thread_or_praise != null">and t1.thread_or_praise=#{thread_or_praise}</if>
+			<if test="year != null">and t1.year=#{year}</if>
+			<if test="quar != null">and t1.quar=#{quar}</if>
+			<if test="month != null">and t1.month=#{month}</if>
+			<if test="brand != null">and t1.brand=#{brand}</if>
+			<if test="car_name != null">and t1.car_name=#{car_name}</if>
+			<if test="car_model_version != null">and t1.car_model_version=#{car_model_version}</if>
 			<if test="first_property != null">and t1.first_property=#{first_property}</if>
 			<if test="second_property != null">and t1.second_property=#{second_property}</if>
+			<if test="third_classify != null">and t1.third_classify=#{third_classify}</if>
 			<if test="comment_key != null">and t1.comment_key=#{comment_key}</if>
+			<if test="real_feel != null">and t1.real_feel=#{real_feel}</if>
+			<if test="market_category != null">and t2.market_category=#{market_category}</if>
+			<if test="market_mess != null">and t2.market_mess=#{market_mess}</if>
+			<if test="nation != null">and t2.nation=#{nation}</if>
+			<if test="original_text != null">and t1.original_text like '%${original_text}%'</if>
+		</where> limit 1,#{perPageSize};
+	</select>	<select id="pageQuaryList" parameterType="map"  resultType="map">
+		select t1.id,t1.original_text,t1.link,t1.website,t1.thread_or_praise,t1.year,
+		t1.quar,t1.month,t1.brand,t1.car_name,t1.car_model_version,t1.first_property,
+		t1.second_property,t1.third_classify,t1.comment_key,t1.real_feel,
+		t2.market_category,t2.market_mess,t2.nation 
+		from produce_property t1,car_own_mess t2
+		<where>
+			t1.brand=t2.brand
+			<if test="website != null">and t1.website=#{website}</if>
+			<if test="thread_or_praise != null">and t1.thread_or_praise=#{thread_or_praise}</if>
+			<if test="year != null">and t1.year=#{year}</if>
+			<if test="quar != null">and t1.quar=#{quar}</if>
+			<if test="month != null">and t1.month=#{month}</if>
+			<if test="brand != null">and t1.brand=#{brand}</if>
+			<if test="car_name != null">and t1.car_name=#{car_name}</if>
+			<if test="car_model_version != null">and t1.car_model_version=#{car_model_version}</if>
+			<if test="first_property != null">and t1.first_property=#{first_property}</if>
+			<if test="second_property != null">and t1.second_property=#{second_property}</if>
+			<if test="third_classify != null">and t1.third_classify=#{third_classify}</if>
+			<if test="comment_key != null">and t1.comment_key=#{comment_key}</if>
+			<if test="real_feel != null">and t1.real_feel=#{real_feel}</if>
+			<if test="market_category != null">and t2.market_category=#{market_category}</if>
+			<if test="market_mess != null">and t2.market_mess=#{market_mess}</if>
+			<if test="nation != null">and t2.nation=#{nation}</if>
+			<if test="original_text != null">and t1.original_text like '%${original_text}%'</if>
+		</where> limit #{start},#{end};
+	</select>
+	<select id="firstQueryCount" resultType="java.lang.Integer" parameterType="map">
+		select count(1) from produce_property t1, car_own_mess t2	
+		<where>
+			t1.brand=t2.brand
+			<if test="website != null">and t1.website=#{website}</if>
+			<if test="thread_or_praise != null">and t1.thread_or_praise=#{thread_or_praise}</if>
+			<if test="year != null">and t1.year=#{year}</if>
+			<if test="quar != null">and t1.quar=#{quar}</if>
+			<if test="month != null">and t1.month=#{month}</if>
+			<if test="brand != null">and t1.brand=#{brand}</if>
+			<if test="car_name != null">and t1.car_name=#{car_name}</if>
+			<if test="car_model_version != null">and t1.car_model_version=#{car_model_version}</if>
+			<if test="first_property != null">and t1.first_property=#{first_property}</if>
+			<if test="second_property != null">and t1.second_property=#{second_property}</if>
+			<if test="third_classify != null">and t1.third_classify=#{third_classify}</if>
+			<if test="comment_key != null">and t1.comment_key=#{comment_key}</if>
+			<if test="real_feel != null">and t1.real_feel=#{real_feel}</if>
+			<if test="market_category != null">and t2.market_category=#{market_category}</if>
+			<if test="market_mess != null">and t2.market_mess=#{market_mess}</if>
+			<if test="nation != null">and t2.nation=#{nation}</if>
 			<if test="original_text != null">and t1.original_text like '%${original_text}%'</if>
 		</where>
 		;	
@@ -53,9 +132,9 @@
 		t1.quar,t1.month,t1.brand,t1.car_name,t1.car_model_version,t1.first_property,
 		t1.second_property,t1.third_classify,t1.comment_key,t1.real_feel,
 		t2.market_category,t2.market_mess,t2.nation 
-		from produce_property t1,car_own_mess t2
+		from produce_property t1,car_own_mess t2 
 		<where>
-			t1.brand=t2.brand
+		t1.brand=t2.brand
 			<if test="website != null">and t1.website=#{website}</if>
 			<if test="thread_or_praise != null">and t1.thread_or_praise=#{thread_or_praise}</if>
 			<if test="year != null">and t1.year=#{year}</if>

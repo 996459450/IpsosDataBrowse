@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn">
+<Configuration status="INFO" monitorInterval="1800">
+ 
 	<Appenders>
 		<RollingFile name="RollingFileWarn" fileName="D:/logs/IpsosDataBrowse/warn.log"
                      filePattern="D:/logs/IpsosDataBrowse/warn-%d{yyyy-MM-dd}-%i.log.zip"
@@ -49,9 +50,11 @@
 				<appender-ref ref="RollingFileWarn"/>
                 <appender-ref ref="RollingFileError"/>
 	    </root>
-
-            <logger name="timeout" level="trace" additivity="false">
-                <appender-ref ref="RollingFileTimeOut"/>
-            </logger>
+<!-- 		<logger name="com.chance.dao" level="DEBUG" additivity="false">  
+            <appender-ref ref="consolePrint"/>  
+        </logger>   -->
+        <logger name="timeout" level="trace" additivity="false">
+            <appender-ref ref="RollingFileTimeOut"/>
+        </logger>
 	</Loggers>
 </Configuration>
