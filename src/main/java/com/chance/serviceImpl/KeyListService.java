@@ -1,6 +1,7 @@
 package com.chance.serviceImpl;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -107,6 +108,14 @@ public class KeyListService implements KeyList{
 	public List<Map<String, Object>> pageQuaryList(Map<String, Object> map) {
 		if(map != null){
 			return keyListDao.pageQuaryList(map);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Object>> download(Map<String, Object> map) {
+		if(map != null){
+			return keyListDao.download(map);
 		}
 		return null;
 	}

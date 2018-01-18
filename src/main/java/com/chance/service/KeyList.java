@@ -1,6 +1,7 @@
 package com.chance.service;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,7 +20,7 @@ public interface KeyList {
 	/**
 	 * 查询每页的数据
 	 */
-	public List<Map<String,Object>> firstQueryList(Map<String,Object> map);
+	public List<Map<String, Object>> firstQueryList(Map<String,Object> map);
 	
 	/**
 	 * 查询数据量
@@ -33,6 +34,10 @@ public interface KeyList {
 	/**
 	 * 分页查询
 	 */
-	public List<Map<String,Object>> pageQuaryList(Map<String,Object> map);
+	public List<Map<String, Object>> pageQuaryList(Map<String,Object> map);
 	
+	/**
+	 * 下载查询
+	 */
+	public List<Map<String,Object>> download(Map<String,Object> map);
 }

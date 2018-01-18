@@ -1,5 +1,6 @@
 package com.chance.dao;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,4 +33,9 @@ public interface KeyListDao {
 	 * 分页查询
 	 */
 	public List<Map<String,Object>> pageQuaryList(Map<String,Object> map);
+	
+	/**
+	 * 下载查询
+	 */
+	public List<Map<String,Object>> download(Map<String,Object> map);
 }

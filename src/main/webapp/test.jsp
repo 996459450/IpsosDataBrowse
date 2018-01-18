@@ -415,7 +415,7 @@ a:hover {
 
 	<div id="img_box">
 		<div id="img_log">
-			<a href="#"><img src="../img/ipsos.png" alt="ipsos" width="100"
+			<a href="#"><img src="<%=request.getContextPath()%>/img/ipsos.png" alt="ipsos" width="100"
 				height="70" /></a>
 		</div>
 		<div id="txt_box">
@@ -430,7 +430,7 @@ a:hover {
 					onkeyup="autoComplete.start(event)" />
 			</div>
 			<div id="btnSelect">
-				<a href="javascript:;">搜&nbsp;&nbsp;索</a>
+				<a><input style="border:0px;background-color:transparent;outline:none; font-size:16px" type="submit" value="搜&nbsp;&nbsp;索"></a>
 			</div>
 			<div id="ipsos_check">
 				<br> <a><label><input type="checkbox"
