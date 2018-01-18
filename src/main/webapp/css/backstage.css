@@ -609,10 +609,10 @@ h2 {
 /*page*/
 .pagin {
 	height:30px;
-	border:1px #000 solid;
+	border:1px #fff solid;
 	position: relative;
 	margin-top: 0px;
-	padding: 0 12px;
+	padding-top:6px;
 }
 
 #message a{line-height:30px;text-align:center;font-size:14px;}
@@ -624,8 +624,8 @@ h2 {
 
 .pagin .paginList {
 	position: absolute;
-	right: 12px;
-	top: 0;
+	right: 700px;
+	top: 5px;
 }
 
 .pagin .paginList .paginItem {

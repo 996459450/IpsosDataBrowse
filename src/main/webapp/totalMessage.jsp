@@ -29,7 +29,7 @@
 	#showdata table{border-collapse:collapse;border-spacing:0;width:100%;table-layout:fixed;}
 	#showdata table td{vertical-align:middle;border:none;}
 
-	#sel{width:1500px;height:700px;border:1px #000 solid;margin:10px auto;}
+	#sel{width:1500px;height:661px;border:1px #000 solid;margin:10px auto;}
 	#dh{width:1500px;height:70px;margin:10px auto;}
 	#xz{width:1500px;height:30px;margin:10px auto;}
 	#showdata{width:1500px;height:480px;margin:10px auto;}
@@ -47,17 +47,18 @@
 	#xz  ul  li{list-style:none;float:left;line-height:32px;padding:0 20px 0 5px;font-size:14px;color:#BCCAEO;}
 
 	.yy{width:100%;height:100%; background:#8a8c91; position:absolute;top:0;left:0;z-index:2;display:none;opacity:0.5;z-index:1;display:none;}
-	#pagin{width:98%;height:30px;line-height:30px;border:1px red solid;margin-top:450px;text-align:right;}
 	#btnSelect a {
 	width: 50px;
 	height: 24px;
-	background: #167ED9;
 	display: block;
 	line-height: 24px;
-	color: #ffffff;
+	background:#39B2E2;
+	color: #fff;;
 	text-align: center;
 	font-size: 12px;
+	border-radius:30px;
 }
+	#btn:hover{background:#33ff66;color:#fff;}
 	#home_box{width:90px;height:70px;float:left;}
 	#home_img{width:90px;height:70px;}
 	#home_txt{width:60px;height:30px;float:left;margin-top:40px;padding-left:10px;}
@@ -251,7 +252,7 @@
 	</select>
 </div></li>
 <li><div id="btnSelect">
-				<a onclick="check1()">搜&nbsp;&nbsp;索</a>
+				<a onclick="check1()" id="btn">搜&nbsp;&nbsp;索</a>
 			</div></li>
 	   </ul>
 	   </form>
