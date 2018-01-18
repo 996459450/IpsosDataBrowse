@@ -609,9 +609,9 @@ h2 {
 /*page*/
 .pagin {
 	height:30px;
-	border:1px red solid;
+	border:1px #000 solid;
 	position: relative;
-	margin-top: 450px;
+	margin-top: 0px;
 	padding: 0 12px;
 }
 

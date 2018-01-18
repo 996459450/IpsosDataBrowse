@@ -24,18 +24,18 @@
 	body {
 	font-size: 14px;
 	font-family: "微软雅黑";
-	background: #f5f6ec;
+	
 }
 	#showdata table{border-collapse:collapse;border-spacing:0;width:100%;table-layout:fixed;}
 	#showdata table td{vertical-align:middle;border:none;}
 
-	#sel{width:1500px;height:700px;border:1px red solid;margin:10px auto;}
-	#dh{width:1500px;height:50px;border:1px red solid;margin:10px auto;}
-	#xz{width:1500px;height:30px;border:1px red solid;margin:10px auto;}
-	#showdata{width:1500px;height:480px;border:1px red solid;margin:10px auto;}
+	#sel{width:1500px;height:700px;border:1px #000 solid;margin:10px auto;}
+	#dh{width:1500px;height:70px;margin:10px auto;}
+	#xz{width:1500px;height:30px;margin:10px auto;}
+	#showdata{width:1500px;height:480px;margin:10px auto;}
 	#showdata table{table-layout:fixed;}
-	#showdata tr{width:1500px;height:30px;border:1px red solid;}
-	#showdata td{height:30px;border:1px red solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+	#showdata tr{width:1500px;height:30px;border:1px #000 solid;}
+	#showdata td{height:30px;border:1px #000 solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 	.show{width:700px;height:350px;background:#fff;border:1px solid #fff;
 	display:none;
 	position:absolute;
@@ -50,21 +50,31 @@
 	#pagin{width:98%;height:30px;line-height:30px;border:1px red solid;margin-top:450px;text-align:right;}
 	#btnSelect a {
 	width: 50px;
-	height: 30px;
+	height: 24px;
 	background: #167ED9;
 	display: block;
-	line-height: 30px;
+	line-height: 24px;
 	color: #ffffff;
 	text-align: center;
 	font-size: 12px;
 }
-
+	#home_box{width:90px;height:70px;float:left;}
+	#home_img{width:90px;height:70px;}
+	#home_txt{width:60px;height:30px;float:left;margin-top:40px;padding-left:10px;}
+	#home_txt a{font-size:14px;line-height:30px;text-align:center;}
+	#tit{width:1200px;height:70px;float:left;}
+	#download{width:40px;height:40px;float:left;margin-top:30px;margin-left:10px;}
+	#home_img img{width:90px;height:70px;}
+	#download img{width:40px;height:40px;}
+	#exit{width:50px;height:40px;float:left;margin-top:30px;padding-left:5px;}
+	#exit a{line-height:40px;text-align:center;}
+	#tit a{font-size:35px;line-height:70px;padding-left:450px;}
   </style>
 
  </head>
  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/combo.select.css">
    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/zcity.css">
-  <link href="<%=request.getContextPath()%>/css/animate.css" class="<%=request.getContextPath()%>/css/animate.css" rel ="stylesheet" type="text/css"></link>
+  <link href="<%=request.getContextPath()%>/css/animate.css.css" class="<%=request.getContextPath()%>/css/animate.css.css" rel ="stylesheet" type="text/css"></link>
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
 	<link href="<%=request.getContextPath()%>/css/backstage.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js" ></script>
@@ -140,7 +150,15 @@
 	<input type="hidden" id="visiblePages" value="${pages.visiblePages}" />
 	<input type="hidden" id="currentPageNum" value="${pages.currentPageNum}" />
   <div id="sel">
-	<div id="dh"></div>
+	<div id="dh">
+	<div id="home_box">
+	<div id="home_img"><img src="<%=request.getContextPath()%>/image/ipsos.png"/></div>
+	</div>
+	<div id="home_txt"><a href="#"> ＞ 首页</a></div>
+	<div id=tit><a>ipsos&nbsp;&nbsp;舆&nbsp;情&nbsp;检&nbsp;索</a></div>
+	<div id="download"><img src="<%=request.getContextPath()%>/image/download.png" /></div>
+	<div id="exit"><a href="#">退出登录</a></div>
+	</div>
 	<div id="xz">
 	<form name="form1" >
 		<ul id="x_ul">
@@ -292,13 +310,13 @@
 		</c:forEach>	
 		</table>
 		</c:if>
-		<input id="allCount" type="hidden" value="${pages.totalCount}">
+		
+</div>
+<input id="allCount" type="hidden" value="${pages.totalCount}">
 		 <div class="pagin">
 				<div class="message" id="message"><a>共<i class="blue">${pages.totalCount}</i>条记录，当前显示第&nbsp;<i class="blue">${pages.currentPageNum}&nbsp;</i>页</a></div>
 				<ul class="paginList" id="pageulid"></ul>
 		</div>
-</div>
-
 			
 	</div>
 	<div class="show" id="show"> </div>
