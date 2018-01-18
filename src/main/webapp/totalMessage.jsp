@@ -28,9 +28,10 @@
 }
 	#showdata table{border-collapse:collapse;border-spacing:0;width:100%;table-layout:fixed;}
 	#showdata table td{vertical-align:middle;border:none;}
+	#showdata th{background:green;color:#fff;}
 
 	#sel{width:1500px;height:661px;border:1px #000 solid;margin:10px auto;}
-	#dh{width:1500px;height:70px;margin:10px auto;}
+	#dh{width:1500px;height:70px;margin:0px auto;background:#bebdab;}
 	#xz{width:1500px;height:30px;margin:10px auto;}
 	#showdata{width:1500px;height:480px;margin:10px auto;}
 	#showdata table{table-layout:fixed;}
@@ -43,7 +44,7 @@
 	}
 	#showdata a:hover{color:#000;}
 	#showdata a:visited{color:#000;}
-	#txt{background:#f5f6ec;}
+	#txt{background:#fff;}
 	#xz  ul  li{list-style:none;float:left;line-height:32px;padding:0 20px 0 5px;font-size:14px;color:#BCCAEO;}
 
 	.yy{width:100%;height:100%; background:#8a8c91; position:absolute;top:0;left:0;z-index:2;display:none;opacity:0.5;z-index:1;display:none;}
@@ -63,10 +64,11 @@
 	#home_img{width:90px;height:70px;}
 	#home_txt{width:60px;height:30px;float:left;margin-top:40px;padding-left:10px;}
 	#home_txt a{font-size:14px;line-height:30px;text-align:center;}
-	#tit{width:1200px;height:70px;float:left;}
-	#download{width:40px;height:40px;float:left;margin-top:30px;margin-left:10px;}
+	#tit{width:1200px;height:70px;float:left;color:#fff;}
+	#tit a{color:#679892;}
+	#download{width:30px;height:30px;float:left;margin-top:40px;margin-left:10px;}
 	#home_img img{width:90px;height:70px;}
-	#download img{width:40px;height:40px;}
+	#download img{width:30px;height:30px;border-radius:7px;}
 	#exit{width:50px;height:40px;float:left;margin-top:30px;padding-left:5px;}
 	#exit a{line-height:40px;text-align:center;}
 	#tit a{font-size:35px;line-height:70px;padding-left:450px;}
@@ -156,7 +158,7 @@
 	<div id="home_img"><img src="<%=request.getContextPath()%>/image/ipsos.png"/></div>
 	</div>
 	<div id="home_txt"><a href="#"> ＞ 首页</a></div>
-	<div id=tit><a>ipsos&nbsp;&nbsp;舆&nbsp;情&nbsp;检&nbsp;索</a></div>
+	<div id=tit><a>IPSOS&nbsp;&nbsp;舆&nbsp;情&nbsp;检&nbsp;索</a></div>
 	<div id="download"><img src="<%=request.getContextPath()%>/image/download.png" /></div>
 	<div id="exit"><a href="#">退出登录</a></div>
 	</div>
