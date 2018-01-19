@@ -9,7 +9,7 @@
   max-width: 100px;
   margin-bottom: 15px;
   font: 100% Helvetica, Arial, Sans-serif;
-  border: 1px #ccc solid;
+  border: 1px #000 solid;
   border-radius: 3px; }
   .combo-select .combo-input {
     margin-bottom: 0; }
@@ -22,7 +22,7 @@
   -moz-appearance: none;
   appearance: none;
   margin: 0;
-  border: none;
+  border: 1px #000 solid;
   box-sizing: border-box;
   padding: 3px;
   padding-right: 30px;

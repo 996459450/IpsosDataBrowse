@@ -74,7 +74,7 @@ body {
 	width: 100px;
 	height: 70px;
 	float: left;
-	margin-left: 100px;
+	margin-left: 200px;
 }
 
 #txt_box {
@@ -415,11 +415,11 @@ a:hover {
 
 	<div id="img_box">
 		<div id="img_log">
-			<a href="#"><img src="<%=request.getContextPath()%>/img/ipsos.png" alt="ipsos" width="100"
+			<a href="#"><img src="<%=request.getContextPath()%>/image/logo.png" alt="ipsos" width="100"
 				height="70" /></a>
 		</div>
 		<div id="txt_box">
-			<a href="#">&nbsp;&nbsp;舆情分析</a>
+			<a href="#"></a>
 		</div>
 	</div>
 

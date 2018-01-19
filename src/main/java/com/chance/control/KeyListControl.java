@@ -328,118 +328,117 @@ public class KeyListControl {
     	}
     	map.put("original_text",original_text);
     	StringBuffer sb = new StringBuffer();
-    	sb.append("<br/>");
     	sb.append("<table style='border-collapse: collapse;border-spacing: 0;'>");
 /*    	Set<String> keySet = map.keySet();
     	for(String key : keySet){*/
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center' id='tt1'>");
     		sb.append("网站");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td valign='middle' id='tt2'>");
     		sb.append(map.get("website"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center'>");
     		sb.append("链接");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append("<a href="+map.get("link")+" target='_blank'>"+map.get("link")+"</a>");
     		sb.append("</td></tr>");
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("年度");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td  id='tt2' valign='middle'>");
     		sb.append(map.get("year"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td   valign='middle' align='center'>");
     		sb.append("季度");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td  id='tt2' valign='middle'>");
     		sb.append(map.get("quar"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("月份");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2'  valign='middle'>");
     		sb.append(map.get("month"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("口碑/论坛");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("thread_or_praise"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("车系");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("car_name"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("车型版本");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td  id='tt2' valign='middle'>");
     		sb.append(map.get("car_model_version"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center'>");
     		sb.append("一级属性");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("first_property"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center'>");
     		sb.append("二级属性");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("second_property"));
     		sb.append("</td></tr>");
     		
     		sb.append("<tr><td width='180px' valign='middle' align='center'>");
     		sb.append("三级分类");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("third_classify"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("关键词");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td  id='tt2' valign='middle'>");
     		sb.append(map.get("comment_key"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("真实情感");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("real_feel"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center'>");
     		sb.append("国家");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt2' valign='middle'>");
     		sb.append(map.get("nation"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td  valign='middle' align='center'>");
     		sb.append("细分市场");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td  id='tt2' valign='middle'>");
     		sb.append(map.get("market_mess"));
     		sb.append("</td></tr>");
     		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
+    		sb.append("<tr><td valign='middle' align='center'>");
     		sb.append("原话");
     		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
+    		sb.append("<td id='tt4' >");
     		sb.append(map.get("original_text"));
     		sb.append("</td></tr>");
 //    	}

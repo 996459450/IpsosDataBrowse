@@ -30,21 +30,24 @@
 	#showdata table td{vertical-align:middle;border:none;}
 	#showdata th{background:green;color:#fff;}
 
-	#sel{width:1500px;height:653px;border:1px #000 solid;margin:10px auto;background:#c0c0c0;}
+	#sel{width:1500px;height:647px;border:1px #000 solid;margin:10px auto;background:#c0c0c0;}
 	#dh{width:1500px;height:70px;margin:0px auto;background:#c0c0c0;}
 	#xz{width:1500px;height:40px;margin:0px auto;background:#c0c0c0;padding-top:10px;}
 	#showdata{width:1500px;height:495px;margin:0px auto;background:#fff;}
 	#showdata table{table-layout:fixed;}
 	#showdata tr{width:1500px;height:30px;border:1px #000 solid;}
 	#showdata td{height:30px;border:1px #000 solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-	.show{width:700px;height:550px;background:#fff;border:1px solid #fff;
+	.show{width:700px;height:573px;background:#fff;border:1px solid #fff;
 	display:none;
 	position:absolute;
 	z-index:3;
 	}
 	#show table{table-layout:fixed;}
-	#show tr{width:600px;height:30px;border:1px #000 solid;}
-	#show td{height:30px;border:1px #000 solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+	#show tr{width:600px;height:30px;border:1px red solid;}
+	#show td{height:30px;border:1px #000 solid;overflow:hidden;text-overflow:ellipsis;}
+	#tt1{width:100px;}
+	#tt2{width:500px;padding-left:5px;}
+	#tt4{width:500px;height:90px;line-height:18px;padding-top:5px;padding-left:6px;}
 	#showdata a:hover{color:#000;}
 	#showdata a:visited{color:#000;}
 	#txt{background:#fff;}
@@ -65,15 +68,15 @@
 	#btn:hover{background:#33ff66;color:#fff;}
 	#home_box{width:90px;height:70px;float:left;}
 	#home_img{width:90px;height:70px;}
-	#home_txt{width:60px;height:30px;float:left;margin-top:40px;padding-left:10px;}
+	#home_txt{width:60px;height:30px;float:left;margin-top:30px;padding-left:10px;}
 	#home_txt a{font-size:14px;line-height:30px;text-align:center;}
 	#tit{width:1200px;height:70px;float:left;color:#fff;}
 	#tit a{color:#679892;}
 	#download{width:30px;height:30px;float:left;margin-top:30px;margin-left:10px;}
 	#home_img img{width:90px;height:70px;}
 	#download img{width:30px;height:30px;border-radius:7px;}
-	#exit{width:50px;height:40px;float:left;margin-top:30px;padding-left:5px;}
-	#exit a{line-height:40px;text-align:center;}
+	#exit{width:30px;height:30px;float:left;margin-top:30px;padding-left:10px;}
+	#exit img{width:30px;height:30px;border-radius:7px;}
 	#tit a{font-size:35px;line-height:70px;padding-left:450px;}
   </style>
 
@@ -160,10 +163,10 @@
 	<div id="home_box">
 	<div id="home_img"><img src="<%=request.getContextPath()%>/image/logo.png"/></div>
 	</div>
-	<div id="home_txt"><a href="#"> ＞ 首页</a></div>
+	<div id="home_txt"><a href="<%=request.getContextPath()%>/keylist/queryAll.php"> ＞ 首页</a></div>
 	<div id=tit></div>
-	<div id="download"><img src="<%=request.getContextPath()%>/image/download.png" /></div>
-	<div id="exit"><a href="#">退出登录</a></div>
+	<div id="download"><a href="<%=request.getContextPath()%>/keylist/download.php"><img alt="下载" src="<%=request.getContextPath()%>/image/download.png" /></a></div>
+	<div id="exit"><a href="#"><img alt="退出" src="<%=request.getContextPath()%>/image/exit.png" /></a></div>
 	</div>
 	<div id="xz">
 	<form name="form1" >
@@ -344,7 +347,7 @@
    $(".btn").click(function(){
 
 	var _left =( $(window).width()-700) / 2;
-    var _top = ($(window).height()-350) / 2;
+    var _top = ($(window).height()-500) / 2;
 	
     $(".show").addClass("animated boundIN").show().css({
        left:_left,

@@ -609,23 +609,22 @@ h2 {
 /*page*/
 .pagin {
 	height:30px;
-	border:1px #fff solid;
+	border:1px #000 solid;
 	position: relative;
 	margin-top: 0px;
-	padding-top:6px;
 }
 
-#message a{line-height:30px;text-align:center;font-size:14px;}
+#message a{line-height:30px;text-align:center;font-size:14px;padding-left:18px;}
 
 .pagin .blue {
-	color: #056dae;
+	color: #000;
 	font-style: normal;
 }
 
 .pagin .paginList {
 	position: absolute;
 	right: 700px;
-	top: 5px;
+	top: 0px;
 }
 
 .pagin .paginList .paginItem {
@@ -636,15 +635,15 @@ h2 {
 	float: left;
 	width: 31px;
 	height: 28px;
-	border: 1px solid #DDD;
+	border: 1px solid #000;
 	text-align: center;
 	line-height: 30px;
 	border-left: none;
-	color: #3399d5;
+	color: #000;
 }
 
 .pagin .paginList .paginItem:first-child a {
-	border-left: 1px solid #DDD;
+	border-left: 1px solid #000;
 }
 
 .pagin .paginList .paginItem:first-child a {
@@ -680,13 +679,13 @@ h2 {
 }
 
 .pagepre {
-	background: url(../image/backstage/pre.gif) no-repeat center center;
+	background: url(../image/pre.png) no-repeat center center;
 	width: 31px;
 	height: 28px;
 }
 
 .pagenxt {
-	background: url(../image/backstage/next.gif) no-repeat center center;
+	background: url(../image/next.png) no-repeat center center;
 	width: 31px;
 	height: 28px;
 }
