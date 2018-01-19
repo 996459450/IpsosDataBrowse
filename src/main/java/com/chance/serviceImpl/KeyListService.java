@@ -27,10 +27,10 @@ public class KeyListService implements KeyList{
 	@Override
 	public List<Map<String, Object>> firstQueryList(Map<String,Object> map) {
 		if(map != null){
-			Set<String> keySet = map.keySet();
+			/*Set<String> keySet = map.keySet();
 			for(String str : keySet){
 				System.out.println(str+"====="+map.get(str)+"<---------->");
-			}
+			}*/
 			return keyListDao.firstQueryList(map);
 		}
 		return null;

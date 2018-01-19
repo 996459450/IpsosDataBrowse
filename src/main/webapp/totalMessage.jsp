@@ -2,10 +2,14 @@
     pageEncoding="utf8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!doctype html>
-<html>
-   
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
   <title>查询页面</title>
-  <meta charset="utf-8">
   <style>
 	 * {
 		margin: 0;
@@ -20,52 +24,60 @@
 	body {
 	font-size: 14px;
 	font-family: "微软雅黑";
-	background: #f5f6ec;
+	
 }
 	#showdata table{border-collapse:collapse;border-spacing:0;width:100%;table-layout:fixed;}
 	#showdata table td{vertical-align:middle;border:none;}
+	#showdata th{background:green;color:#fff;}
 
-	#sel{width:1500px;height:700px;border:1px red solid;margin:10px auto;}
-	#dh{width:1500px;height:50px;border:1px red solid;margin:10px auto;}
-	#xz{width:1500px;height:30px;border:1px red solid;margin:10px auto;}
-	#showdata{width:1500px;height:480px;border:1px red solid;margin:10px auto;}
+	#sel{width:1500px;height:653px;border:1px #000 solid;margin:10px auto;background:#c0c0c0;}
+	#dh{width:1500px;height:70px;margin:0px auto;background:#c0c0c0;}
+	#xz{width:1500px;height:40px;margin:0px auto;background:#c0c0c0;padding-top:10px;}
+	#showdata{width:1500px;height:495px;margin:0px auto;background:#fff;}
 	#showdata table{table-layout:fixed;}
-	#showdata tr{width:1500px;height:30px;border:1px red solid;}
-	#showdata td{height:30px;border:1px red solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-	.show{width:900px;height:500px;background:#fff;border:1px solid #fff;
+	#showdata tr{width:1500px;height:30px;border:1px #000 solid;}
+	#showdata td{height:30px;border:1px #000 solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+	.show{width:700px;height:550px;background:#fff;border:1px solid #fff;
 	display:none;
 	position:absolute;
 	z-index:3;
 	}
-	
+	#show table{table-layout:fixed;}
+	#show tr{width:600px;height:30px;border:1px #000 solid;}
+	#show td{height:30px;border:1px #000 solid;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 	#showdata a:hover{color:#000;}
 	#showdata a:visited{color:#000;}
-	#txt{background:#f5f6ec;}
-	#xz  ul  li{list-style:none;float:left;line-height:32px;padding:0 20px 0 5px;font-size:14px;color:#BCCAEO;}
+	#txt{background:#fff;}
+	#xz  ul  li{list-style:none;float:left;line-height:25px;padding:0 20px 0 5px;font-size:14px;color:#BCCAEO;}
 
 	.yy{width:100%;height:100%; background:#8a8c91; position:absolute;top:0;left:0;z-index:2;display:none;opacity:0.5;z-index:1;display:none;}
-	#pagin{width:98%;height:30px;line-height:30px;border:1px red solid;margin-top:450px;text-align:right;}
 	#btnSelect a {
-		width: 50px;
-		height: 30px;
-		background: #167ED9;
-		display: block;
-		line-height: 30px;
-		color: #ffffff;
-		text-align: center;
-		font-size: 12px;
-	}
-	.div123{
-		width:790px;
-	}
-	.div123 table{
-		border:1px black solid;
-	}
-	.div123 td{
-		height:25px;
-	}
-
+	width: 50px;
+	height: 24px;
+	display: block;
+	line-height: 24px;
+	background:#39B2E2;
+	color: #fff;;
+	text-align: center;
+	font-size: 12px;
+	border-radius:30px;
+}
+	#btn:hover{background:#33ff66;color:#fff;}
+	#home_box{width:90px;height:70px;float:left;}
+	#home_img{width:90px;height:70px;}
+	#home_txt{width:60px;height:30px;float:left;margin-top:40px;padding-left:10px;}
+	#home_txt a{font-size:14px;line-height:30px;text-align:center;}
+	#tit{width:1200px;height:70px;float:left;color:#fff;}
+	#tit a{color:#679892;}
+	#download{width:30px;height:30px;float:left;margin-top:30px;margin-left:10px;}
+	#home_img img{width:90px;height:70px;}
+	#download img{width:30px;height:30px;border-radius:7px;}
+	#exit{width:50px;height:40px;float:left;margin-top:30px;padding-left:5px;}
+	#exit a{line-height:40px;text-align:center;}
+	#tit a{font-size:35px;line-height:70px;padding-left:450px;}
   </style>
+
+ </head>
  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/combo.select.css">
    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/zcity.css">
   <link href="<%=request.getContextPath()%>/css/animate.css.css" class="<%=request.getContextPath()%>/css/animate.css.css" rel ="stylesheet" type="text/css"></link>
@@ -74,6 +86,8 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js" ></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jqPaginator.min.js" ></script>
 	<script type="text/javascript">
+	/* )
+	*/
 	$(function(){
                 $.jqPaginator('#pageulid', {
                     totalPages: parseInt($("#totalPageNum").val()), //设置分页的总页数，默认0
@@ -131,15 +145,8 @@
             			"&quar="+quar+"&month="+month+"&thread_or_praise="+thread_or_praise+"&car_name="+car_name+"&car_model_version="
             			+car_model_version+"&brand="+brand+"&real_feel="+real_feel+"&market_mess="+market_mess+"&nation="+nation; --%>
              }
-            function myAlert(){
-            	var mess = document.getElementById("message").val()
-            	if(mess!=null && mess != ""){
-            		alert(mess)
-            		return;
-            	}
-            }
 	</script>
- <body onload="myAlert()">
+ <body>
 	<input type="hidden" id="opt" value="${opt}"/>
 	<c:forEach items="${parameterValues}" var="s">
 		<input style="display: none" name="key_list" type="checkbox"
@@ -147,12 +154,16 @@
 	</c:forEach>
 	<input type="hidden" id="totalPageNum" value="${pages.totalPageNum}" />
 	<input type="hidden" id="visiblePages" value="${pages.visiblePages}" />
-	<input type="hidden" id="currentPageNum" value="${pages.currentPageNum}"/>
-	<input type="hidden" id="message" value="${message}">
+	<input type="hidden" id="currentPageNum" value="${pages.currentPageNum}" />
   <div id="sel">
 	<div id="dh">
-		<div position="right" height="100px" width="50px" border="1px solid red"><a href="<%=request.getContextPath()%>/keylist/download.php">下载</a>></div>
-		<div position="right" height="100px" width="50px" border="1px solid red"><a href="<%=request.getContextPath()%>/keylist/redirct.php">首页</a>></div>
+	<div id="home_box">
+	<div id="home_img"><img src="<%=request.getContextPath()%>/image/logo.png"/></div>
+	</div>
+	<div id="home_txt"><a href="#"> ＞ 首页</a></div>
+	<div id=tit></div>
+	<div id="download"><img src="<%=request.getContextPath()%>/image/download.png" /></div>
+	<div id="exit"><a href="#">退出登录</a></div>
 	</div>
 	<div id="xz">
 	<form name="form1" >
@@ -209,7 +220,7 @@
 	<select>
 			<option value="">车型版本</option>
 		<c:forEach items="${filterOption.car_model_version}" var="v">
-			<option  value="${v}"><a title="${v}">${v}</a></option>
+			<option  value="${v}">${v}</option>
 		</c:forEach>
 	</select>
 </div></li>
@@ -246,7 +257,7 @@
 	</select>
 </div></li>
 <li><div id="btnSelect">
-				<a onclick="check1()">搜&nbsp;&nbsp;索</a>
+				<a onclick="check1()" id="btn">搜&nbsp;&nbsp;索</a>
 			</div></li>
 	   </ul>
 	   </form>
@@ -256,7 +267,7 @@
 	<c:if test="${pages == null}">未查到数据....</c:if>
 	<c:if test="${pages != null}">
 		<table>
-		<tr border="1px red solid" >
+		<tr >
 			<th>编号</th>
 			<th>网站</th>
 			<th>链接</th>
@@ -276,68 +287,56 @@
 			<th>国别</th>
 			<th>细分市场</th>
 			<th>省/区域</th>
+			
+		<!-- 	<th><a href="#">撒案件</a></td>
+			<th><a href="#" class="btn" id="txt" onclick="replace()">撒案件撒案件撒案件</a></td> -->
 		</tr>
 		<c:forEach items="${pages.entitys}" var="v" varStatus="i">
-			<tr border="1px red solid">
-				<td border="1px red solid">${i.count}</td>
-				<td border="1px red solid">${v.website}</td>
-				<td border="1px red solid"><a href="${v.link}" target="_blank">${v.link}</a></td>
-				<td border="1px red solid"><a href="#" class="btn"  onclick="replace('jsahfd')">${v.original_text}</a></td>
-				<td border="1px red solid">${v.thread_or_praise}</td>
-				<td border="1px red solid">${v.year}</td>
-				<td border="1px red solid">${v.quar}</td>
-				<td border="1px red solid">${v.month}</td>
-				<td border="1px red solid">${v.brand}</td>
-				<td border="1px red solid">${v.car_name}</td>
-				<td border="1px red solid">${v.car_model_version}</td>
-				<td border="1px red solid">${v.first_property}</td>
-				<td border="1px red solid">${v.second_property}</td>
-				<td border="1px red solid">${v.third_classify}</td>
-				<td border="1px red solid">${v.comment_key}</td>
-				<td border="1px red solid">${v.real_feel}</td>
-				<td border="1px red solid">${v.nation}</td>
-				<td border="1px red solid">${v.market_mess}</td>
-				<td border="1px red solid">${v.real_feel}</td>
- 				<%-- <div id="txt${i.count}">
-					${v.totalDiv}
-				</div> --%>
+			<tr >
+				<td >${i.count}</td>
+				<td id="tt">${v.website}</td>
+				<td ><a href="${v.link}" target="_blank">${v.link}</a></td>
+				<td ><a href="#" class="btn" id="txt" onclick="replace('txt${i.count}')">${v.original_text}</a></td>
+				<td >${v.thread_or_praise}</td>
+				<td >${v.year}</td>
+				<td >${v.quar}</td>
+				<td >${v.month}</td>
+				<td >${v.brand}</td>
+				<td >${v.car_name}</td>
+				<td >${v.car_model_version}</td>
+				<td >${v.first_property}</td>
+				<td >${v.second_property}</td>
+				<td >${v.third_classify}</td>
+				<td >${v.comment_key}</td>
+				<td >${v.real_feel}</td>
+				<td >${v.nation}</td>
+				<td>${v.market_mess}</td>
+				<td >${v.real_feel}</td>
 			</tr>
 		</c:forEach>	
 		</table>
-		<div hidden="true" class="div123" id="jsahfd">
-		<br/>
-		<table>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>网站</td><td width='600px' valign='middle'>汽车之家</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>链接</td><td width='600px' valign='middle'><a href=123 target='_blank'>123</a></td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>年度</td><td width='600px' valign='middle'>2017</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>季度</td><td width='600px' valign='middle'>Q2</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>月份</td><td width='600px' valign='middle'>4</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>口碑/论坛</td><td width='600px' valign='middle'>口碑</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>车系</td><td width='600px' valign='middle'>英朗</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>车型版本</td><td width='600px' valign='middle'>2017款 15N 手动进取型</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>一级属性</td><td width='600px' valign='middle'>外观</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>二级属性</td><td width='600px' valign='middle'>车头外观</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>三级分类</td><td width='600px' valign='middle'>3</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>关键词</td><td width='600px' valign='middle'>好看</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>关键词</td><td width='600px' valign='middle'>好看</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>真实情感</td><td width='600px' valign='middle'>正面</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>国家</td><td width='600px' valign='middle'>美系</td></tr>
-			<tr><td width='180px'  height='25px' valign='middle' align='center'>细分市场</td><td width='600px' valign='middle'>Low-med</td></tr>
-		</table>
-		</div>
 		</c:if>
-		<input id="allCount" type="hidden" value="${pages.totalCount}">
+		
+</div>
+<input id="allCount" type="hidden" value="${pages.totalCount}">
 		 <div class="pagin">
 				<div class="message" id="message"><a>共<i class="blue">${pages.totalCount}</i>条记录，当前显示第&nbsp;<i class="blue">${pages.currentPageNum}&nbsp;</i>页</a></div>
 				<ul class="paginList" id="pageulid"></ul>
 		</div>
-</div>
-
 			
 	</div>
-	<div class="show" id="show"> </div>
+
 	<div class="yy"></div>
-  </div>
+	
+		<div class="show" id="show">
+		
+		</div>
+		
+<c:forEach items="${pages.entitys}" var="v" varStatus="i">
+<div hidden="true" id="txt${i.count}">
+	${v.totalDiv}
+</div>
+</c:forEach>
 <script src="<%=request.getContextPath()%>/js/jquery.combo.select.js"></script>
 <script type ="text/javascript">
   $(function(){
@@ -357,10 +356,11 @@
   
 	$(".yy").click(function(){
 		   $(".show,.yy").toggle(0)
+		  // $("#asdf table td").html("");
 	   });
 $('select').comboSelect();
 	  });
-function replace(str){
+function replace(str){ 
 	document.getElementById("show").innerHTML=document.getElementById(str).innerHTML;
 }
 </script>

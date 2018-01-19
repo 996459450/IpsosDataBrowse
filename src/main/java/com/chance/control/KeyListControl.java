@@ -151,6 +151,9 @@ public class KeyListControl {
 			int cnt = firstQueryCount(map1);
 			
 			List<Map<String, Object>> queryList = keyListService.firstQueryList(map1);
+			for(Map<String,Object>  map : queryList){
+				map.put("totalDiv", getHtmlString(map));
+			}
 			Page page = new Page(cnt,queryList);
 			map_t.putAll(map1);
 			keyListService.filterOption(map1);
@@ -201,7 +204,7 @@ public class KeyListControl {
 			List<Map<String, Object>> firstQueryList = keyListService.pageQuaryList(map_page);
 			for(Map<String, Object> list : firstQueryList){
 				list.put("totalDiv", getHtmlString(list));
-				System.out.println(list);
+				System.out.println(list.get("totalDiv"));
 			}
 			Page page = new Page(totalCount,firstQueryList);
 			page.setCurrentPageNum(num);
@@ -326,7 +329,7 @@ public class KeyListControl {
     	map.put("original_text",original_text);
     	StringBuffer sb = new StringBuffer();
     	sb.append("<br/>");
-    	sb.append("<table border='1px solid black'  width='800px' style='border-collapse: collapse;border-spacing: 0;'>");
+    	sb.append("<table style='border-collapse: collapse;border-spacing: 0;'>");
 /*    	Set<String> keySet = map.keySet();
     	for(String key : keySet){*/
     		sb.append("<tr><td width='180px' valign='middle' align='center'>");
@@ -342,7 +345,6 @@ public class KeyListControl {
     		sb.append("<td width='600px' valign='middle'>");
     		sb.append("<a href="+map.get("link")+" target='_blank'>"+map.get("link")+"</a>");
     		sb.append("</td></tr>");
-    		
     		sb.append("<tr><td width='180px' valign='middle' align='center'>");
     		sb.append("年度");
     		sb.append("</td>");
@@ -404,13 +406,6 @@ public class KeyListControl {
     		sb.append("</td>");
     		sb.append("<td width='600px' valign='middle'>");
     		sb.append(map.get("third_classify"));
-    		sb.append("</td></tr>");
-    		
-    		sb.append("<tr><td width='180px' valign='middle' align='center'>");
-    		sb.append("关键词");
-    		sb.append("</td>");
-    		sb.append("<td width='600px' valign='middle'>");
-    		sb.append(map.get("comment_key"));
     		sb.append("</td></tr>");
     		
     		sb.append("<tr><td width='180px' valign='middle' align='center'>");
